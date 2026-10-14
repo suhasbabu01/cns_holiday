@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneha Electrical - ESCOM Permissions & Electrical Services</title>
+    <meta name="description"
+        content="Sneha Electrical - Your trusted electrical contractor in Bengaluru for ESCOM permissions, HT/LT installations, transformer services, and electrical documentation.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <svg class="preloader-svg" width="100" height="100" viewBox="0 0 100 100">
+                <circle class="preloader-ring" cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"/>
+                <circle class="preloader-ring-fill" cx="50" cy="50" r="40" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round"/>
+                <text x="50" y="55" text-anchor="middle" fill="var(--primary)" font-size="24" font-weight="bold" font-family="Poppins">SE</text>
+            </svg>
+            <div class="preloader-text">Sneha Electrical</div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Contact Info Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contacts-info">
+                <a class="contacts-item" href="tel:+919902827569">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 9902827569</span>
+                </a>
+                <a class="contacts-item" href="mailto:snehaelectrical96@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    <span>snehaelectrical96@gmail.com</span>
+                </a>
+                <div class="contacts-item" id="open-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Find Our Location</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Logo" class="logo-img">
+                <div class="logo-text">Sneha Electrical</div>
+            </div>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Location Popup -->
+    <div class="location-popup" id="location-popup">
+        <div class="location-content">
+            <div class="location-header">
+                <h3>Our Location</h3>
+                <button class="close-popup" id="close-location"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="location-body">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.06982542015834!2d77.56756627953405!3d12.900184213165598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1560cd32b9d5%3A0xeea6a0bdf346679d!2s10%2C%205th%20Cross%20Rd%2C%20Anuradha%20Industrial%20Estate%2C%20Kumaraswamy%20Layout%2C%20Bengaluru%2C%20Karnataka%20560111!5e0!3m2!1sen!2sin!4v1762149041360!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="location-details">
+                    <div class="location-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>No.435, Yelachenahalli, Uttarahalli Hobli, Near Kanakapura Main road Bengaluru Karnataka 560078</p>
+                        </div>
+                    </div>
+                    <div class="location-detail">
+                        <i class="fas fa-phone"></i>
+                        <div><h4>Phone</h4><p><a href="tel:+919902827569" class="link-contact">+91 9902827569</a></p></div>
+                    </div>
+                    <div class="location-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div><h4>Email</h4><p><a href="mailto:snehaelectrical96@gmail.com" class="link-contact">snehaelectrical96@gmail.com</a></p></div>
+                    </div>
+                    <div class="location-detail">
+                        <i class="fas fa-clock"></i>
+                        <div><h4>Business Hours</h4><p>Monday - Saturday: 9:00 AM - 6:00 PM</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Popup -->
+    <div class="email-popup" id="email-popup">
+        <div class="email-content">
+            <div class="email-header">
+                <h3>Contact Us Via Email</h3>
+                <button class="close-popup" id="close-email"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="email-body">
+                <p>You can reach us at:</p>
+                <h4 style="color: var(--accent); margin: 10px 0;"><a href="mailto:snehaelectrical96@gmail.com" class="link-contact">snehaelectrical96@gmail.com</a></h4>
+                <p>We typically respond to emails within 24 hours during business days.</p>
+                <div class="email-actions">
+                    <button class="btn" id="copy-email"><i class="fas fa-copy"></i> Copy Email</button>
+                    <a href="mailto:snehaelectrical96@gmail.com" class="btn btn-accent"><i class="fas fa-envelope"></i> Send Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <!-- SVG Circuit Pattern Background -->
+        <svg class="hero-circuit-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgba(249,216,6,0.15)"/>
+                    <stop offset="100%" style="stop-color:rgba(255,77,48,0.08)"/>
+                </linearGradient>
+            </defs>
+            <!-- Circuit lines -->
+            <g class="circuit-lines" stroke="url(#circuitGrad)" stroke-width="1.5" fill="none">
+                <path d="M0,200 H200 V400 H500 V300 H700" class="circuit-path"/>
+                <path d="M1440,150 H1200 V350 H900 V250 H750" class="circuit-path"/>
+                <path d="M100,700 H350 V500 H600 V650 H800" class="circuit-path"/>
+                <path d="M1440,600 H1100 V450 H850 V550" class="circuit-path"/>
+                <path d="M0,450 H150 V300 H350" class="circuit-path"/>
+                <path d="M1300,800 H1050 V700 H900" class="circuit-path"/>
+            </g>
+            <!-- Circuit nodes (dots at intersections) -->
+            <g class="circuit-nodes" fill="var(--primary)">
+                <circle cx="200" cy="200" r="4" class="circuit-node"/>
+                <circle cx="200" cy="400" r="4" class="circuit-node"/>
+                <circle cx="500" cy="400" r="4" class="circuit-node"/>
+                <circle cx="500" cy="300" r="4" class="circuit-node"/>
+                <circle cx="700" cy="300" r="4" class="circuit-node"/>
+                <circle cx="1200" cy="150" r="4" class="circuit-node"/>
+                <circle cx="1200" cy="350" r="4" class="circuit-node"/>
+                <circle cx="900" cy="350" r="4" class="circuit-node"/>
+                <circle cx="900" cy="250" r="4" class="circuit-node"/>
+                <circle cx="350" cy="500" r="4" class="circuit-node"/>
+                <circle cx="600" cy="500" r="4" class="circuit-node"/>
+                <circle cx="600" cy="650" r="4" class="circuit-node"/>
+                <circle cx="150" cy="450" r="4" class="circuit-node"/>
+                <circle cx="150" cy="300" r="4" class="circuit-node"/>
+                <circle cx="1100" cy="600" r="4" class="circuit-node"/>
+                <circle cx="1100" cy="450" r="4" class="circuit-node"/>
+                <circle cx="1050" cy="800" r="4" class="circuit-node"/>
+                <circle cx="1050" cy="700" r="4" class="circuit-node"/>
+            </g>
+            <!-- Floating geometric shapes -->
+            <g class="hero-shapes">
+                <polygon points="120,100 140,70 160,100" fill="none" stroke="rgba(249,216,6,0.2)" stroke-width="1.5" class="shape-float"/>
+                <rect x="1280" y="120" width="30" height="30" rx="5" fill="none" stroke="rgba(255,77,48,0.15)" stroke-width="1.5" transform="rotate(45,1295,135)" class="shape-float-reverse"/>
+                <polygon points="80,550 95,520 130,520 140,550 125,575 90,575" fill="none" stroke="rgba(249,216,6,0.12)" stroke-width="1.5" class="shape-float"/>
+                <circle cx="1350" cy="500" r="20" fill="none" stroke="rgba(255,77,48,0.12)" stroke-width="1.5" class="shape-float-reverse"/>
+                <polygon points="700,80 720,50 740,80" fill="none" stroke="rgba(249,216,6,0.1)" stroke-width="1.5" class="shape-float"/>
+                <rect x="400" y="750" width="25" height="25" rx="4" fill="none" stroke="rgba(255,77,48,0.1)" stroke-width="1.5" class="shape-float-reverse"/>
+            </g>
+        </svg>
+
+        <div class="hero-gradient-overlay"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Your One-Stop <span class="text-gradient">Electrical</span> Contractor
+                </h1>
+                <div class="typewriter-wrapper">
+                    <span class="typewriter-prefix">We specialize in </span>
+                    <span class="typewriter-text" id="typewriter"></span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+                <p class="hero-desc">We offer end-to-end solutions for power supply permissions, including new ESCOM
+                    connections, HT and LT electrical installations, transformer erection, relocation of electrical
+                    infrastructure, and a wide range of electrical office services.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-glow">Contact Us</a>
+                    <a href="#contact" class="btn btn-accent btn-glow">Get a Free Quote</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Counter Bar -->
+        <div class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <svg class="stat-ring" width="90" height="90" viewBox="0 0 90 90">
+                            <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
+                            <circle class="stat-ring-fill" cx="45" cy="45" r="38" fill="none" stroke="var(--primary)" stroke-width="3" stroke-linecap="round" data-percent="80"/>
+                        </svg>
+                        <div class="stat-inner">
+                            <div class="stat-numbers">
+                                <span class="stat-number" data-target="200">0</span><span class="stat-suffix">+</span>
+                            </div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="stat-ring" width="90" height="90" viewBox="0 0 90 90">
+                            <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
+                            <circle class="stat-ring-fill" cx="45" cy="45" r="38" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" data-percent="60"/>
+                        </svg>
+                        <div class="stat-inner">
+                            <div class="stat-numbers">
+                                <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
+                            </div>
+                            <div class="stat-label">Years Exp.</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="stat-ring" width="90" height="90" viewBox="0 0 90 90">
+                            <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
+                            <circle class="stat-ring-fill" cx="45" cy="45" r="38" fill="none" stroke="var(--primary)" stroke-width="3" stroke-linecap="round" data-percent="90"/>
+                        </svg>
+                        <div class="stat-inner">
+                            <div class="stat-numbers">
+                                <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+                            </div>
+                            <div class="stat-label">Clients</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="stat-ring" width="90" height="90" viewBox="0 0 90 90">
+                            <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
+                            <circle class="stat-ring-fill" cx="45" cy="45" r="38" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" data-percent="100"/>
+                        </svg>
+                        <div class="stat-inner">
+                            <div class="stat-numbers">
+                                <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                            </div>
+                            <div class="stat-label">Licensed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Wave (multi-layer) -->
+        <div class="wave-divider wave-hero">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150" preserveAspectRatio="none">
+                <path fill="rgba(255,255,255,0.05)" d="M0,80 C360,140 720,20 1080,80 C1280,110 1380,60 1440,80 L1440,150 L0,150 Z"/>
+                <path fill="rgba(255,255,255,0.1)" d="M0,100 C320,50 640,130 960,80 C1200,50 1350,110 1440,90 L1440,150 L0,150 Z"/>
+                <path fill="#ffffff" d="M0,120 C288,95 720,140 1080,105 C1200,95 1360,130 1440,110 L1440,150 L0,150 Z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION (Bento Grid) ==================== -->
+    <section class="section services-section" id="services">
+        <!-- SVG Dot Grid Background -->
+        <svg class="svg-dot-grid" width="100%" height="100%">
+            <defs>
+                <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1.2" fill="rgba(0,0,0,0.04)"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dotPattern)"/>
+        </svg>
+
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle scroll-reveal">What We Do</span>
+                <h2 class="scroll-reveal">Our Services</h2>
+                <p class="scroll-reveal">Comprehensive electrical solutions tailored to your property type</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="services-filter scroll-reveal">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Services
+                </button>
+                <button class="filter-btn" data-filter="residential">
+                    <i class="fas fa-home"></i> Residential
+                </button>
+                <button class="filter-btn" data-filter="commercial">
+                    <i class="fas fa-building"></i> Commercial
+                </button>
+                <button class="filter-btn" data-filter="industrial">
+                    <i class="fas fa-industry"></i> Industrial
+                </button>
+            </div>
+
+            <!-- Bento Grid (rendered by JS) -->
+            <div class="services-bento scroll-reveal" id="servicesBento"></div>
+        </div>
+    </section>
+
+    <!-- Service Detail Modal -->
+    <div class="service-modal" id="serviceModal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <button class="service-modal-close" id="serviceModalClose"><i class="fas fa-times"></i></button>
+                <div class="service-modal-icon">
+                    <i id="modalIcon" class="fas fa-bolt"></i>
+                </div>
+                <div class="service-modal-header-text">
+                    <div class="service-modal-categories" id="modalCategories"></div>
+                    <h2 id="modalTitle"></h2>
+                </div>
+            </div>
+            <div class="service-modal-body">
+                <p class="service-modal-desc" id="modalDesc"></p>
+                <div class="service-modal-grid">
+                    <div class="service-modal-section">
+                        <h4><i class="fas fa-check-circle"></i> What's Included</h4>
+                        <ul id="modalIncluded"></ul>
+                    </div>
+                    <div class="service-modal-section">
+                        <h4><i class="fas fa-list-ol"></i> Our Process</h4>
+                        <ol id="modalProcess"></ol>
+                    </div>
+                    <div class="service-modal-section">
+                        <h4><i class="fas fa-file-alt"></i> Documents Required</h4>
+                        <ul id="modalDocuments"></ul>
+                    </div>
+                    <div class="service-modal-section">
+                        <h4><i class="fas fa-clock"></i> Typical Timeline</h4>
+                        <p id="modalTimeline"></p>
+                    </div>
+                </div>
+                <div class="service-modal-cta">
+                    <a href="#contact" class="btn" id="modalQuoteBtn">Get Free Quote</a>
+                    <a href="tel:+919902827569" class="btn btn-accent">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle scroll-reveal">Our Work</span>
+                <h2 class="scroll-reveal">Our Projects</h2>
+                <p class="scroll-reveal">Hover over a panel to explore. Tap "View Details" for more info.</p>
+            </div>
+            <div class="projects-accordion scroll-reveal" id="projects-container">
+                <!-- Projects loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Lightbox -->
+    <div class="lightbox" id="projectLightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wave to About -->
+    <div class="wave-divider wave-white-to-gray">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path fill="rgba(248,249,250,0.5)" d="M0,40 C480,100 960,0 1440,60 L1440,120 L0,120 Z"/>
+            <path fill="#f8f9fa" d="M0,80 C320,40 720,110 1440,60 L1440,120 L0,120 Z"/>
+        </svg>
+    </div>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle scroll-reveal">Who We Are</span>
+                <h2 class="scroll-reveal">About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="scroll-reveal">Electrical Services</h2>
+                    <p class="scroll-reveal">At Sneha Electrical, we handle everything related to electrical power
+                        supply connections - from getting ESCOM approvals to installing transformers, shifting existing
+                        electrical systems, and managing all related office documentation and compliance.</p>
+                    <p class="scroll-reveal">We provide comprehensive services for residential homes, commercial
+                        buildings, and industrial setups - ensuring your project is powered up safely, legally, and
+                        efficiently.</p>
+                    <div class="about-features">
+                        <div class="feature scroll-reveal">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28">
+                                    <circle cx="14" cy="14" r="13" fill="none" stroke="var(--primary)" stroke-width="2"/>
+                                    <polyline points="8,14 12,18 20,10" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>ESCOM Approval Specialists</h4>
+                                <p>Expertise in navigating ESCOM procedures and requirements</p>
+                            </div>
+                        </div>
+                        <div class="feature scroll-reveal">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28">
+                                    <circle cx="14" cy="14" r="13" fill="none" stroke="var(--primary)" stroke-width="2"/>
+                                    <polyline points="8,14 12,18 20,10" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>HT & LT Installations with Material Supply</h4>
+                                <p>Complete solutions from planning to execution</p>
+                            </div>
+                        </div>
+                        <div class="feature scroll-reveal">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28">
+                                    <circle cx="14" cy="14" r="13" fill="none" stroke="var(--primary)" stroke-width="2"/>
+                                    <polyline points="8,14 12,18 20,10" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Residential, Commercial & Industrial Expertise</h4>
+                                <p>Tailored solutions for all types of properties</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img-wrapper scroll-reveal">
+                    <!-- SVG Blob behind image -->
+                    <svg class="about-blob" viewBox="0 0 600 600">
+                        <path d="M300,520 C180,520 80,420 80,300 C80,180 180,80 300,80 C420,80 520,180 520,300 C520,420 420,520 300,520 Z" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="10,8" opacity="0.3" class="blob-rotate"/>
+                        <path d="M300,490 C200,490 110,400 110,300 C110,200 200,110 300,110 C400,110 490,200 490,300 C490,400 400,490 300,490 Z" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="6,10" opacity="0.2" class="blob-rotate-reverse"/>
+                    </svg>
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                            alt="Electrical Work">
+                    </div>
+                    <!-- SVG corner brackets -->
+                    <svg class="about-bracket top-left" width="50" height="50" viewBox="0 0 50 50"><path d="M0,50 L0,10 Q0,0 10,0 L50,0" fill="none" stroke="var(--primary)" stroke-width="3"/></svg>
+                    <svg class="about-bracket bottom-right" width="50" height="50" viewBox="0 0 50 50"><path d="M50,0 L50,40 Q50,50 40,50 L0,50" fill="none" stroke="var(--accent)" stroke-width="3"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave to Clients (gray → dark) -->
+        <div class="wave-divider wave-bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path fill="rgba(26,26,46,0.3)" d="M0,60 C360,10 720,100 1440,40 L1440,120 L0,120 Z"/>
+                <path fill="#1a1a2e" d="M0,90 C480,50 960,110 1440,70 L1440,120 L0,120 Z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== CLIENTS SECTION ==================== -->
+    <section class="section clients-section" id="clients">
+        <!-- SVG pattern overlay -->
+        <svg class="clients-pattern" width="100%" height="100%">
+            <defs>
+                <pattern id="hexPattern" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+                    <polygon points="30,2 56,15 56,37 30,50 4,37 4,15" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hexPattern)"/>
+        </svg>
+
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle scroll-reveal">Our Clients</span>
+                <h2 class="scroll-reveal">Who We Serve</h2>
+                <p class="scroll-reveal">Comprehensive electrical solutions for all types of properties</p>
+            </div>
+            <div class="clients-grid">
+                <div class="flip-card scroll-reveal">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <svg class="flip-bg-shape" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(249,216,6,0.1)" stroke-width="1" stroke-dasharray="4,4"/></svg>
+                            <div class="flip-icon"><i class="fas fa-home"></i></div>
+                            <h3>Residential</h3>
+                            <p class="flip-hint"><i class="fas fa-sync-alt"></i> <span class="hint-desktop">Hover</span><span class="hint-mobile">Tap</span> for details</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Residential</h3>
+                            <p>Individual Homes, Apartments, Layouts, Gated Communities, and Villa Projects</p>
+                            <a href="#contact" class="btn btn-sm">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card scroll-reveal">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <svg class="flip-bg-shape" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,77,48,0.1)" stroke-width="1" stroke-dasharray="4,4"/></svg>
+                            <div class="flip-icon"><i class="fas fa-building"></i></div>
+                            <h3>Commercial</h3>
+                            <p class="flip-hint"><i class="fas fa-sync-alt"></i> <span class="hint-desktop">Hover</span><span class="hint-mobile">Tap</span> for details</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Commercial</h3>
+                            <p>Shops, Offices, Malls, Restaurants, Hotels, and Commercial Complexes</p>
+                            <a href="#contact" class="btn btn-sm">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card scroll-reveal">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <svg class="flip-bg-shape" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(249,216,6,0.1)" stroke-width="1" stroke-dasharray="4,4"/></svg>
+                            <div class="flip-icon"><i class="fas fa-industry"></i></div>
+                            <h3>Industrial</h3>
+                            <p class="flip-hint"><i class="fas fa-sync-alt"></i> <span class="hint-desktop">Hover</span><span class="hint-mobile">Tap</span> for details</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Industrial</h3>
+                            <p>Factories, Warehouses, Manufacturing Units, and Industrial Estates</p>
+                            <a href="#contact" class="btn btn-sm">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave out of clients -->
+        <div class="wave-divider wave-dark-to-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path fill="rgba(255,255,255,0.1)" d="M0,60 C480,10 960,100 1440,40 L1440,120 L0,120 Z"/>
+                <path fill="#ffffff" d="M0,90 C320,50 720,110 1440,70 L1440,120 L0,120 Z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="section contact-section" id="contact">
+        <!-- SVG decorative shapes -->
+        <svg class="contact-deco-left" width="300" height="300" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(249,216,6,0.06)" stroke-width="1"/>
+            <circle cx="150" cy="150" r="90" fill="none" stroke="rgba(255,77,48,0.04)" stroke-width="1"/>
+            <circle cx="150" cy="150" r="60" fill="none" stroke="rgba(249,216,6,0.03)" stroke-width="1"/>
+        </svg>
+        <svg class="contact-deco-right" width="200" height="200" viewBox="0 0 200 200">
+            <rect x="20" y="20" width="160" height="160" rx="20" fill="none" stroke="rgba(255,77,48,0.05)" stroke-width="1" transform="rotate(15,100,100)"/>
+            <rect x="40" y="40" width="120" height="120" rx="15" fill="none" stroke="rgba(249,216,6,0.04)" stroke-width="1" transform="rotate(30,100,100)"/>
+        </svg>
+
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle scroll-reveal">Get in Touch</span>
+                <h2 class="scroll-reveal">Contact Us</h2>
+                <p class="scroll-reveal">Let's Get You Connected - the Right Way</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item scroll-reveal">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>No.435, Yelachenahalli, Uttarahalli Hobli, Near Kanakapura Main road Bengaluru Karnataka 560078</p>
+                        </div>
+                    </div>
+                    <div class="contact-item scroll-reveal">
+                        <div class="contact-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div><h4>Phone</h4><p><a href="tel:+919902827569" class="link-contact">+91 9902827569</a></p></div>
+                    </div>
+                    <div class="contact-item scroll-reveal">
+                        <div class="contact-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div><h4>Email</h4><p><a href="mailto:snehaelectrical96@gmail.com" class="link-contact">snehaelectrical96@gmail.com</a></p></div>
+                    </div>
+                    <div class="contact-item scroll-reveal">
+                        <div class="contact-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                        </div>
+                        <div><h4>Working Hours</h4><p>Mon-Sat | 9 AM - 6 PM</p></div>
+                    </div>
+                </div>
+                <div class="contact-form scroll-reveal">
+                    <form id="contactForm">
+                        <div class="form-group floating-label">
+                            <input type="text" class="form-control" id="name" placeholder=" " required>
+                            <label for="name">Your Name</label>
+                            <div class="error" id="nameError">Please enter your name</div>
+                        </div>
+                        <div class="form-group floating-label">
+                            <input type="email" class="form-control" id="email" placeholder=" " required>
+                            <label for="email">Your Email</label>
+                            <div class="error" id="emailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group floating-label">
+                            <input type="tel" class="form-control" id="phone" placeholder=" ">
+                            <label for="phone">Your Phone</label>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option>ESCOM Power Supply Permissions</option>
+                                <option>HT & LT Electrical Installations</option>
+                                <option>Transformer Installation Services</option>
+                                <option>Shifting of Electrical Installations</option>
+                                <option>Electrical Office Work & Documentation</option>
+                                <option>Electrical Load Enhancement</option>
+                                <option>Electrical Load Reduction</option>
+                                <option>Electrical Name/Tariff Change</option>
+                            </select>
+                            <div class="error" id="serviceError">Please select a service</div>
+                        </div>
+                        <div class="form-group floating-label">
+                            <textarea class="form-control" id="message" rows="5" placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" class="custom-btn btn-email" id="sendEmailBtn">
+                                <i class="fas fa-envelope"></i> Send Email
+                            </button>
+                            <button type="button" class="custom-btn btn-whatsapp" id="sendWhatsappBtn">
+                                <i class="fab fa-whatsapp"></i> Send WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                    <div class="success-message" id="successMessage">Thank you! Your message has been sent successfully.</div>
+                    <div class="whatsapp-notification" id="whatsappNotification">
+                        <p>Your message has been prepared for WhatsApp!</p>
+                        <p>Click <a href="#" id="whatsappLink">here</a> to send it via WhatsApp if it didn't open automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Sneha Electrical</h3>
+                    <p>Your trusted partner for all electrical contracting needs, specializing in Office permissions, HT/LT installations, and transformer services.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Office Documentation</a></li>
+                        <li><a href="#services">HT & LT Works</a></li>
+                        <li><a href="#services">Transformer Installation</a></li>
+                        <li><a href="#services">Electrical Shifting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> No.435, Yelachenahalli, Uttarahalli Hobli, Near Kanakapura Main road Bengaluru Karnataka 560078</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+919902827569">+91 9902827569</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:snehaelectrical96@gmail.com">snehaelectrical96@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Sneha Electrical. All rights reserved. | Class-I Licensed Electrical Contractor</p>
+                <a href="https://www.jpworks.in/" target="_blank" rel="noopener" class="built-by">
+                    Built by <span class="jp-brand">JP<span class="jp-red">works</span></span><span class="jp-cursor">._</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top with Progress Ring -->
+    <div class="back-to-top" id="backToTop">
+        <svg class="progress-ring" viewBox="0 0 54 54">
+            <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.25)" stroke-width="3" fill="transparent" r="24" cx="27" cy="27"/>
+            <circle class="progress-ring-circle" stroke="var(--primary)" stroke-width="3" fill="transparent" r="24" cx="27" cy="27"/>
+        </svg>
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
