@@ -1,0 +1,13 @@
+{
+  "name": "snehaelectrical",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sneha Electrical - static website",
+  "scripts": {
+    "dev": "npx --yes serve .",
+    "start": "npx --yes serve . -s"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

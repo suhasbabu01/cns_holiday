@@ -1,176 +1,261 @@
 // ========================================
-// Services Data
+// Fleet & Services Data – CNS Holiday
 // ========================================
 const servicesData = [
     {
         id: 1,
-        title: "ESCOM Power Supply Permissions",
-        shortDesc: "Complete end-to-end handling of new electrical connections, temporary power, load approvals, and all ESCOM regulatory liaison work for your property.",
-        icon: "fa-bolt",
+        title: "Innova Crysta – Premium Comfort",
+        shortDesc: "Our flagship 6+1 / 7+1 seater for family trips, corporate travel & outstation tours. Captain seats, powerful AC, ample luggage space.",
+        icon: "fa-car",
         size: "large",
-        categories: ["residential", "commercial", "industrial"],
-        fullDesc: "Navigating ESCOM approvals can be complex and time-consuming. We specialize in handling the entire process, from application to connection, ensuring smooth and timely power supply for your property.",
+        categories: ["local", "outstation", "airport"],
+        fullDesc: "Travel comfortably, reach happily. Innova Crysta is perfect for Ooty, Coonoor, Mysore & Coimbatore trips – smooth on ghats, premium comfort for long drives with experienced hill-station drivers.",
         included: [
-            "New electrical connection applications",
-            "Temporary power supply approvals",
-            "Additional load enhancement / reduction",
-            "Name change and tariff modifications",
-            "Complete ESCOM liaison & follow-up"
+            "6+1 / 7+1 seater Innova Crysta",
+            "Local packages: 4hr/40km, 8hr/80km",
+            "Outstation: per-km + driver bata",
+            "Airport pickup / drop – on-time guarantee",
+            "Sanitized car, uniformed driver"
         ],
         process: [
-            "Initial consultation and site survey",
-            "Document collection and verification",
-            "ESCOM application submission",
-            "Follow-up and coordination",
-            "Approval and connection"
+            "Call / WhatsApp 98444 64174",
+            "Share date, pickup point & destination",
+            "Get fixed quote – no hidden charges",
+            "Driver details on SMS before trip",
+            "Pay after trip – UPI / cash"
         ],
-        documents: ["Property documents", "ID and address proof", "Site plan / layout", "Previous electricity bills (if any)"],
-        timeline: "15-30 days"
+        documents: ["Families & groups up to 6", "Corporate airport transfers", "Mysore / Ooty weekend tours"],
+        timeline: "₹3,500+ local • ₹22/km+ outstation (call for exact quote)"
     },
     {
         id: 2,
-        title: "HT & LT Installations",
-        shortDesc: "Licensed to execute High Tension and Low Tension installations including line works, cable laying, and distribution boards.",
-        icon: "fa-tools",
+        title: "Tempo Traveller",
+        shortDesc: "12 / 14 / 17-seater pushback Tempo Travellers for group tours, weddings & pilgrimages.",
+        icon: "fa-shuttle-van",
         size: "small",
-        categories: ["commercial", "industrial"],
-        fullDesc: "Professional High Tension (HT) and Low Tension (LT) installations for commercial and industrial facilities. Our Class-I licensed team handles everything from design to commissioning.",
+        categories: ["outstation", "local"],
+        fullDesc: "Ideal for 9–17 passengers. High roof, pushback seats, music system & ample luggage carrier for multi-day South India tours.",
         included: [
-            "HT line installation up to 11kV",
-            "LT distribution boards and panels",
-            "Cable laying (underground & overhead)",
-            "Transformer erection & integration",
-            "Safety testing and commissioning"
+            "12 / 14 / 17 seater options",
+            "Pushback seats + charging points",
+            "Ooty, Coorg, Tirupati packages",
+            "Wedding / corporate shuttles"
         ],
         process: [
-            "Load analysis and design",
-            "Material procurement",
-            "Site preparation",
-            "Installation and cable work",
-            "Testing, commissioning & handover"
+            "Share group size & itinerary",
+            "Get vehicle + package quote",
+            "Confirm with small advance",
+            "Tour-ready vehicle at doorstep"
         ],
-        documents: ["Load sanction letter", "Approved drawings", "Site plan"],
-        timeline: "30-60 days"
+        documents: ["Groups 9–17 pax", "Weddings & events", "Multi-day tours"],
+        timeline: "₹5,500+ local • ₹26/km+ outstation"
     },
     {
         id: 3,
-        title: "Transformer Services",
-        shortDesc: "Supply, erection and installation of oil/dry-type transformers with complete CEIG and ESCOM approvals.",
-        icon: "fa-industry",
+        title: "Mini Bus & Bus Rental",
+        shortDesc: "22 to 50-seater buses for school trips, company outings & large groups.",
+        icon: "fa-bus",
         size: "small",
-        categories: ["commercial", "industrial"],
-        fullDesc: "Complete transformer installation services including supply, erection, testing, and all regulatory approvals. We handle both oil-type and dry-type transformers.",
+        categories: ["outstation", "local"],
+        fullDesc: "Safe, speed-governed buses with experienced drivers for large groups. Perfect for Chennai, Tirupati, Mysore day trips.",
         included: [
-            "Oil-type & dry-type transformers",
-            "Transformer erection & mounting",
-            "Earthing and safety systems",
-            "Testing and commissioning",
-            "CEIG inspection coordination",
-            "ESCOM approval liaison"
+            "22 / 32 / 50 seater buses",
+            "School / college trips",
+            "Corporate outings",
+            "Wedding guest movement"
         ],
         process: [
-            "Capacity calculation & sizing",
-            "Transformer supply arrangement",
-            "Foundation & site preparation",
-            "Erection and connections",
-            "Testing and regulatory approvals"
+            "Share headcount & route",
+            "Site / route planning call",
+            "Fixed package quotation",
+            "On-trip 24/7 support"
         ],
-        documents: ["Load approval letter", "Site clearance", "Approved drawings"],
-        timeline: "20-45 days"
+        documents: ["Groups 20–50 pax", "Schools & corporates", "Weddings"],
+        timeline: "Custom package – call 98444 64174"
     },
     {
         id: 4,
-        title: "Electrical Shifting",
-        shortDesc: "Shifting of transformers, poles, panels, meters, and overhead-to-underground conversions.",
-        icon: "fa-exchange-alt",
+        title: "Local Packages – Bangalore",
+        shortDesc: "Half-day & full-day Bangalore city tours, shopping, hospital & function drops.",
+        icon: "fa-city",
         size: "small",
-        categories: ["residential", "commercial", "industrial"],
-        fullDesc: "Expert shifting services for electrical infrastructure including transformers, poles, panels, and meters. We also specialize in overhead-to-underground conversions.",
+        categories: ["local"],
+        fullDesc: "8hr/80km full-day and 4hr/40km half-day local packages in Innova or Tempo. Ideal for city sightseeing, marriages & guest handling.",
         included: [
-            "Transformer relocation",
-            "Pole shifting and re-erection",
-            "Panel and meter shifting",
-            "Cable re-routing",
-            "Overhead to underground conversion",
-            "Complete BESCOM coordination"
+            "4hr/40km & 8hr/80km slabs",
+            "ISKCON, Lalbagh, Nandi Hills runs",
+            "Function / hospital drops",
+            "Extra km / hour clearly billed"
         ],
         process: [
-            "Site assessment and survey",
-            "BESCOM approval for shifting",
-            "Planning and scheduling",
-            "Safe dismantling and shifting",
-            "Reinstallation and testing"
+            "Pick vehicle & time slot",
+            "Fixed local package quote",
+            "Driver arrives 10 min early",
+            "Transparent extra billing"
         ],
-        documents: ["Shifting request letter", "Site plan", "ESCOM approval"],
-        timeline: "15-30 days"
+        documents: ["City sightseeing", "Functions & guests", "Hospital visits"],
+        timeline: "Innova ₹3,500+ • Tempo ₹5,500+"
     },
     {
         id: 5,
-        title: "Office Work & Documentation",
-        shortDesc: "We manage all backend procedures for load applications, name changes, tariff changes, and CEIG safety certificates.",
-        icon: "fa-file-alt",
+        title: "Outstation – South India Tourism",
+        shortDesc: "Ooty, Coonoor, Mysore, Coimbatore, Chennai & custom hill-station / temple / beach tours.",
+        icon: "fa-route",
         size: "wide",
-        categories: ["residential", "commercial", "industrial"],
-        fullDesc: "Complete documentation and regulatory support for all your electrical office work. We handle the paperwork so you don't have to deal with government departments.",
+        categories: ["outstation"],
+        fullDesc: "New places, new experiences. 1-day Mysore, 2-day Ooty–Coonoor, Tirupati darshan, Coimbatore–Isha, Chennai drops & Kerala routes with tour planning help.",
         included: [
-            "Additional load applications",
-            "Name change requests",
-            "Tariff category changes",
-            "CEIG safety certificate renewal",
-            "Electrical inspector liaison",
-            "Compliance & renewal management"
+            "Ooty – Coonoor 2D/3D tours",
+            "Mysore 1-day packages",
+            "Tirupati / Coimbatore pilgrimage",
+            "Chennai airport drops",
+            "Custom South India circuits"
         ],
         process: [
-            "Requirement analysis",
-            "Document preparation",
-            "Submission to authorities",
-            "Follow-up and coordination",
-            "Approval delivery"
+            "Tell us dates & places",
+            "Get route + hotel guidance",
+            "Vehicle + driver package",
+            "On-tour support on WhatsApp"
         ],
-        documents: ["ID and address proof", "Property ownership documents", "Previous electricity bills"],
-        timeline: "10-20 days"
+        documents: ["Family vacations", "Pilgrimage groups", "Honeymoon & friends trips"],
+        timeline: "2-day Ooty from ₹18,000+ (vehicle only)"
+    },
+    {
+        id: 6,
+        title: "Airport Pickup & Drop",
+        shortDesc: "On-time Kempegowda Airport transfers at fixed price – day or night, with flight tracking.",
+        icon: "fa-plane",
+        size: "small",
+        categories: ["airport", "local"],
+        fullDesc: "Early-morning or late-night flights – we track your flight and wait with placard. Fixed airport pricing from Gottigere & across Bangalore.",
+        included: [
+            "Fixed airport pricing",
+            "Flight tracking + waiting",
+            "Night-drive experienced drivers",
+            "Innova / Tempo / Sedan options"
+        ],
+        process: [
+            "Share flight no. & time",
+            "Fixed pickup quote",
+            "Driver + cab details on SMS",
+            "Pay after drop"
+        ],
+        documents: ["Solo & family flyers", "Corporate pickups", "Night arrivals"],
+        timeline: "Fixed quote on call – 24/7 service"
     }
 ];
 
 // ========================================
-// Projects Data
+// Destinations Data – CNS Holiday
 // ========================================
 const projectsData = [
     {
         id: 1,
-        title: "Industrial Transformer Installation",
-        shortTitle: "Industrial Transformer",
-        tag: "HT Installation",
-        description: "Complete HT transformer installation for a manufacturing unit in Jigani Industrial Area, including BESCOM approvals and commissioning.",
-        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80",
-        fallback: "img/IndustrialTransformer.jpeg"
+        title: "Ooty – Queen of Hills",
+        shortTitle: "Ooty",
+        tag: "Hill Station",
+        description: "Nilgiri toy train, Botanical Garden, Doddabetta & tea estates. Innova & Tempo packages from Bangalore with stay guidance.",
+        image: "https://images.unsplash.com/photo-1506461883276-6d654efb6c80?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/header-1.jpg"
     },
     {
         id: 2,
-        title: "Commercial Complex Electrical Setup",
-        shortTitle: "Commercial Setup",
-        tag: "LT Installation",
-        description: "Complete LT electrical installation for a 5-story commercial complex in Whitefield, Bengaluru, including distribution boards and BESCOM connection.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80",
-        fallback: "img/commercial-1.jpg"
+        title: "Coonoor – Tea Gardens",
+        shortTitle: "Coonoor",
+        tag: "Hill Station",
+        description: "Sim's Park, Dolphin's Nose, Lamb's Rock & tea factory visits. Cool ghat drive with our experienced hill drivers.",
+        image: "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/header-2.jpg"
     },
     {
         id: 3,
-        title: "Apartment Complex Power Upgrade",
-        shortTitle: "Apartment Upgrade",
-        tag: "Load Enhancement",
-        description: "Additional load approval and electrical infrastructure upgrade for a 50-unit apartment complex in JP Nagar, Bengaluru, including meter shifting.",
-        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80",
-        fallback: "img/residential-1.jpg"
+        title: "Coorg – Coffee Land",
+        shortTitle: "Coorg",
+        tag: "Hill Station",
+        description: "Abbey Falls, Raja's Seat, Dubare elephants & coffee estates. Perfect 2-day misty getaway from Bangalore.",
+        image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/about-1.jpg"
     },
     {
         id: 4,
-        title: "Factory HT Line Installation",
-        shortTitle: "Factory HT Line",
-        tag: "11kV HT Line",
-        description: "11kV HT line installation for an automotive parts manufacturing facility with transformer setup and safety systems.",
-        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1400&q=80",
+        title: "Munnar – Tea Valleys",
+        shortTitle: "Munnar",
+        tag: "Hill Station",
+        description: "Eravikulam, Mattupetty dam, echo point & sprawling tea gardens. Multi-day Kerala hill circuit with Tempo Traveller.",
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/about-2.jpg"
+    },
+    {
+        id: 5,
+        title: "Kodaikanal – Princess of Hills",
+        shortTitle: "Kodaikanal",
+        tag: "Hill Station",
+        description: "Kodaikanal Lake, Coaker's Walk, Pillar Rocks & pine forests. Cool year-round escape for families & couples.",
+        image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/carousel-1.jpg"
+    },
+    {
+        id: 6,
+        title: "Mysore – Palace City",
+        shortTitle: "Mysore",
+        tag: "Heritage",
+        description: "Mysore Palace, Chamundi Hills, St. Philomena Church & Brindavan Gardens. Perfect weekend 1-day Innova trip.",
+        image: "https://images.unsplash.com/photo-1600112356915-089abb8fc71a?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/commercial-1.jpg"
+    },
+    {
+        id: 7,
+        title: "Hampi – Ancient Wonders",
+        shortTitle: "Hampi",
+        tag: "Heritage",
+        description: "Virupaksha Temple, stone chariot, Tungabhadra coracles & boulder landscapes. UNESCO heritage weekend tour.",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/commercial-2.jpg"
+    },
+    {
+        id: 8,
+        title: "Tirupati – Balaji Darshan",
+        shortTitle: "Tirupati",
+        tag: "Pilgrimage",
+        description: "TTD Balaji darshan with special-entry guidance, Padmavathi & Kalahasti add-ons. Overnight Tempo & Bus pilgrimage runs.",
+        image: "https://images.unsplash.com/photo-1620766165457-a8025baa82e0?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/commercial-3.jpg"
+    },
+    {
+        id: 9,
+        title: "Madurai – Meenakshi Temple",
+        shortTitle: "Madurai",
+        tag: "Temple",
+        description: "Meenakshi Amman Temple, Thirumalai Nayakar Palace & evening aarti. Temple-town circuit with Rameshwaram extension.",
+        image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1400&q=80",
         fallback: "img/industrial-1.jpg"
+    },
+    {
+        id: 10,
+        title: "Pondicherry – French Coast",
+        shortTitle: "Pondicherry",
+        tag: "Beach",
+        description: "Rock Beach, Aurobindo Ashram, French Quarter cafes & Paradise Beach. Chill coastal weekend with resort stay help.",
+        image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/industrial-2.jpg"
+    },
+    {
+        id: 11,
+        title: "Gokarna – Serene Beaches",
+        shortTitle: "Gokarna",
+        tag: "Beach",
+        description: "Om Beach, Kudle sunsets, Mahabaleshwar Temple & beach treks. Spiritual + beachy combo trip for groups & couples.",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/industrial-3.jpg"
+    },
+    {
+        id: 12,
+        title: "Alleppey – Backwaters & Resorts",
+        shortTitle: "Alleppey",
+        tag: "Backwaters",
+        description: "Houseboats, kayaking, Ayurvedic resorts & Vembanad sunsets. Premium Kerala backwater packages with stay tie-ups.",
+        image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1400&q=80",
+        fallback: "img/banner-img.jpg"
     }
 ];
 
@@ -311,11 +396,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Typewriter Effect
 // ========================================
 const typewriterPhrases = [
-    "New ESCOM Connections",
-    "HT & LT Installations",
-    "Transformer Services",
-    "Electrical Documentation",
-    "Load Enhancement"
+    "Innova Crysta Tours",
+    "Tempo Traveller Trips",
+    "Airport Transfers",
+    "Ooty • Mysore • Coorg",
+    "Safe & Happy Journeys"
 ];
 
 let phraseIndex = 0;
@@ -684,7 +769,7 @@ function validateForm() {
         isValid = false;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (email !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         document.getElementById('emailError').style.display = 'block';
         isValid = false;
     }
@@ -699,8 +784,8 @@ function validateForm() {
 
 function prepareMessageContent(name, email, phone, service, message) {
     return {
-        emailBody: `\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}\n`,
-        whatsappMessage: `New Contact Form Submission:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`
+        emailBody: `\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nVehicle/Trip: ${service}\nTrip Details: ${message}\n`,
+        whatsappMessage: `New Trip Booking – CNS Holiday:\nName: ${name}\nPhone: ${phone}\nVehicle/Trip: ${service}\nDetails: ${message}`
     };
 }
 
@@ -709,7 +794,7 @@ document.getElementById('sendEmailBtn').addEventListener('click', function () {
     const v = validateForm();
     if (v.isValid) {
         const { emailBody } = prepareMessageContent(v.name, v.email, v.phone, v.service, v.message);
-        window.location.href = `mailto:snehaelectrical96@gmail.com?subject=New Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
+        window.location.href = `mailto:chandujaau1287@gmail.com?subject=New Trip Booking Request&body=${encodeURIComponent(emailBody)}`;
         const msg = document.getElementById('successMessage');
         msg.style.display = 'block';
         msg.textContent = "Email client opened with your message!";
@@ -722,7 +807,7 @@ document.getElementById('sendWhatsappBtn').addEventListener('click', function ()
     const v = validateForm();
     if (v.isValid) {
         const { whatsappMessage } = prepareMessageContent(v.name, v.email, v.phone, v.service, v.message);
-        const whatsappLink = `https://wa.me/919902827569?text=${encodeURIComponent(whatsappMessage)}`;
+        const whatsappLink = `https://wa.me/919844464174?text=${encodeURIComponent(whatsappMessage)}`;
         document.getElementById('whatsappLink').href = whatsappLink;
 
         const newWindow = window.open(whatsappLink, '_blank');

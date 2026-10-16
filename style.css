@@ -2,14 +2,16 @@
    CSS Variables & Base Styles
    ======================================== */
 :root {
-    --primary: #f9d806;
-    --secondary: #454545;
-    --accent: #ff4d30;
+    --primary: #EAB308;
+    --secondary: #1A2F7A;
+    --accent: #2B5CE6;
     --light: #f8f9fa;
-    --dark: #333;
-    --gray: #6c757d;
-    --dark-bg: #1a1a2e;
-    --dark-bg2: #16213e;
+    --dark: #1c2440;
+    --gray: #5A6B9E;
+    --dark-bg: #1B3691;
+    --dark-bg2: #2B5CE6;
+    --ice: #F2F6FF;
+    --ice2: #E4EBFF;
 }
 
 * {
@@ -244,7 +246,7 @@ img { max-width: 100%; height: auto; }
    Top Bar
    ======================================== */
 .top-bar {
-    background-color: #2c3e50;
+    background-color: #0F2160;
     color: #fff;
     padding: 8px 0;
     font-size: 14px;
@@ -389,8 +391,8 @@ header.scrolled {
    HERO SECTION
    ======================================== */
 .hero {
-    background: linear-gradient(rgba(10, 10, 30, 0.82), rgba(10, 10, 30, 0.82)),
-        url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+    background: linear-gradient(180deg, rgba(43, 92, 230, 0.55), rgba(15, 30, 90, 0.80)),
+        url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
     color: white;
     padding: 180px 0 80px;
     text-align: center;
@@ -1404,7 +1406,7 @@ header.scrolled {
     cursor: pointer;
     transition: flex 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-radius: 16px;
-    min-width: 80px;
+    min-width: 58px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -2292,6 +2294,7 @@ footer {
 
     .logo-text { font-size: 1.5rem; }
     .logo-img { width: 40px; height: 40px; }
+    .logo-img-cns { height: 62px; }
 
     .hero { padding: 140px 0 80px; min-height: auto; }
     .hero-title { font-size: 2rem; }
@@ -2446,4 +2449,138 @@ footer {
     .filter-btn i { display: none; }
     .bento-card { padding: 22px 18px; }
     .project-panel { height: 220px; }
+}
+
+/* ========================================
+   CNS Holiday – Travel theme additions
+   ======================================== */
+.logo-badge {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #07163F;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.05rem; letter-spacing: 0.5px;
+    margin-right: 12px;
+    box-shadow: 0 0 0 3px rgba(255,196,0,0.25);
+}
+.logo-img-cns { height: 84px; width: auto; display: block; background: transparent; padding: 0; border-radius: 0; filter: none; }
+.preloader-logo { width: 250px; max-width: 72vw; height: auto; display: block; margin: 0 auto 10px; background: transparent; padding: 0; border-radius: 0; filter: none; }
+.logo-sub { font-size: 0.68rem; letter-spacing: 3px; color: var(--primary); font-weight: 600; }
+.nav-book { margin-left: 18px; color: #07163F !important; }
+.hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,196,0,0.15);
+    border: 1px solid rgba(255,196,0,0.5);
+    color: var(--primary);
+    padding: 8px 18px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px;
+    margin-bottom: 18px;
+}
+.hero-tags { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 5px; }
+.hero-tags span {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 7px 16px; border-radius: 50px; font-size: 0.82rem; font-weight: 500;
+    backdrop-filter: blur(8px);
+}
+.hero-tags i { color: var(--primary); margin-right: 6px; }
+.fleet-strip { background: #1A2F7A; padding: 0; }
+.fleet-strip-inner {
+    display: flex; align-items: stretch; gap: 0;
+    background: #1A2F7A; color: #fff;
+    border-radius: 0;
+}
+.fleet-label { background: #0F2160; padding: 18px 26px; font-weight: 800; font-size: 1.2rem; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.fleet-label span { color: var(--primary); }
+.fleet-items { display: flex; flex: 1; overflow-x: auto; }
+.fleet-items div {
+    flex: 1; min-width: 130px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; padding: 14px 10px; font-size: 0.75rem; font-weight: 600;
+    border-left: 1px solid rgba(255,255,255,0.12); text-align: center;
+}
+.fleet-items i { font-size: 1.5rem; color: var(--primary); }
+.dest-note { text-align: center; margin-top: 22px; color: var(--gray); }
+.dest-note a { color: var(--accent); font-weight: 700; }
+.about-tick { font-size: 1.6rem; color: var(--primary); }
+.about-cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+.contact-ico { color: #fff; font-size: 1.2rem; }
+.journey-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;
+    margin-top: 45px; position: relative; z-index: 1;
+}
+.journey-steps div {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 20px 12px; text-align: center;
+    display: flex; flex-direction: column; gap: 4px;
+}
+.journey-steps i { color: var(--primary); font-size: 1.6rem; margin-bottom: 6px; }
+.journey-steps b { letter-spacing: 2px; }
+.journey-steps span { color: rgba(255,255,255,0.6); font-size: 0.82rem; }
+.footer-tag { color: var(--primary); font-weight: 700; letter-spacing: 1px; margin-top: 10px; }
+.footer-dests li { margin-bottom: 14px; }
+.foot-group {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 2px;
+}
+.footer-dests a { font-size: 0.85rem; line-height: 1.6; }
+.wa-float {
+    position: fixed; bottom: 90px; right: 30px; z-index: 999;
+    width: 54px; height: 54px; border-radius: 50%;
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem; box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    transition: transform 0.3s ease;
+}
+.wa-float:hover { transform: scale(1.1); }
+.clients-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 992px) { .clients-grid { grid-template-columns: repeat(2, 1fr); } .journey-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) {
+    .fleet-strip-inner { flex-direction: column; }
+    .fleet-label { justify-content: center; }
+    .nav-book { margin: 8px 0 0 0; }
+}
+@media (max-width: 480px) { .clients-grid { grid-template-columns: 1fr; } .wa-float { bottom: 72px; right: 18px; width: 46px; height: 46px; } }
+
+/* ========================================
+   Royal light theme overrides
+   ======================================== */
+/* Light header – navy logo stays readable */
+header { background: #ffffff; color: #16296B; box-shadow: 0 2px 20px rgba(22, 41, 107, 0.12); }
+header.scrolled { background: rgba(255, 255, 255, 0.96); }
+.nav-link { color: #22377F; }
+.nav-link.active { color: var(--accent); }
+.mobile-toggle { color: #16296B; }
+
+/* Light preloader to match navy logo */
+.preloader { background: var(--ice); }
+.preloader-text { color: #16296B; }
+
+/* Light royal "why us" section */
+.clients-section { background: linear-gradient(180deg, #EDF2FF, #DCE7FF); color: #16296B; }
+.clients-section .section-title p { color: #4A5FA5; }
+.flip-card-front { background: #ffffff; border: 1px solid #DFE7FF; box-shadow: 0 10px 30px rgba(26, 47, 122, 0.10); }
+.flip-card-front h3 { color: #16296B; }
+.flip-hint { color: #8AA0D8; }
+.journey-steps div { background: #ffffff; border: 1px solid #DFE7FF; box-shadow: 0 8px 24px rgba(26, 47, 122, 0.08); }
+.journey-steps b { color: #16296B; }
+.journey-steps span { color: #5A72B8; }
+
+/* Royal deep footer */
+footer { background: linear-gradient(180deg, #1A2F7A, #101F5E); }
+
+/* Light sections */
+.services-section { background: linear-gradient(180deg, #ffffff, var(--ice)); }
+.contact-section { background: var(--ice); }
+.about { background: #ffffff; }
+
+@media (max-width: 768px) {
+    .nav-menu { background: rgba(255, 255, 255, 0.98); box-shadow: 0 10px 30px rgba(22, 41, 107, 0.15); }
 }
