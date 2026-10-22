@@ -2,7 +2,7 @@
   "name": "cns-holiday",
   "version": "1.0.0",
   "private": true,
-  "description": "CNS Holiday - Tours and Travels",
+  "description": "CNS Holiday",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 3000",
     "build": "tsc && vite build",

@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
         <div className="footer-content">
           <div className="footer-col">
             <h3>CNS Holiday</h3>
-            <p>Tours and Travels – Safe Journey, Happy Memories.</p>
+            <p>Holiday – Safe Journey, Happy Memories.</p>
             <p className="footer-tag">Your Journey, OUR PRIORITY</p>
           </div>
           <div className="footer-col">
@@ -115,8 +115,7 @@ export const Footer: React.FC = () => {
         </div>
         <div className="footer-bottom">
           <p>
-            &copy; {currentYear} CNS Holiday – Tours and Travels. All rights
-            reserved.
+            &copy; {currentYear} CNS Holiday. All rights reserved.
           </p>
           <a
             href="#home"

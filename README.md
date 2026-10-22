@@ -1,6 +1,6 @@
-# CNS Holiday – Tours and Travels
+# CNS Holiday
 
-A modern React & TypeScript web application for CNS Holiday Tours and Travels based in Gottigere, Bengaluru.
+A modern React & TypeScript web application for CNS Holiday based in Gottigere, Bengaluru.
 
 ## Features
 
