@@ -1,0 +1,7 @@
+{
+  "name": "CNS Holiday – Tours and Travels",
+  "description": "CNS Holiday Tours and Travels - Innova Crysta, Tempo Traveller & Bus rentals for local, outstation & airport trips across South India.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
