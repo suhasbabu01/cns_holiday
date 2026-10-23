@@ -1,0 +1,6 @@
+{
+  "name": "CNS Holiday",
+  "description": "CNS Holiday - Premium chauffeur-driven travel service in Bengaluru and South India tourism packages.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

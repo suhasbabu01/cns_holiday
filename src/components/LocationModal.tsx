@@ -17,12 +17,12 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose })
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     };
   }, [isOpen, onClose]);
 

@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+// Relative base ('./') ensures assets load correctly both in AI Studio (root) and on GitHub Pages (/cns_holiday/)
 export default defineConfig({
-  base: '/cns_holiday/',
+  base: './',
   plugins: [react()],
   server: {
     host: '0.0.0.0',

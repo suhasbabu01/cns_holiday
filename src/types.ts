@@ -22,3 +22,16 @@ export interface BookingFormData {
   service: string;
   message: string;
 }
+
+export interface BookingConfirmationDetails {
+  refId: string;
+  name: string;
+  email?: string;
+  phone: string;
+  service: string;
+  message?: string;
+  method: 'whatsapp' | 'email';
+  timestamp: string;
+  actionUrl: string;
+}
+

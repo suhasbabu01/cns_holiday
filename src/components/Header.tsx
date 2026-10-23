@@ -56,7 +56,17 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             onClick={(e) => handleNavClick(e, 'home')}
             style={{ display: 'flex', alignItems: 'center' }}
           >
-            <img src="/img/cns-logo.png" alt="CNS Holiday" className="logo-img-cns" />
+            <img
+              src={`${import.meta.env.BASE_URL}img/cns-logo.png`}
+              alt="CNS Holiday"
+              className="logo-img-cns"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.includes('cns-logo.png')) {
+                  target.src = './img/cns-logo.png';
+                }
+              }}
+            />
           </a>
         </div>
         <div

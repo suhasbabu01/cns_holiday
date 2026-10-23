@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   JustdialAlbum,
   justdialAlbumsData,
@@ -28,15 +28,40 @@ export const JustdialPhotosSection: React.FC<JustdialPhotosSectionProps> = ({
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedAlbum) return;
+      if (e.key === 'Escape') {
+        handleCloseModal();
+      } else if (e.key === 'ArrowRight') {
+        setActivePhotoIndex((prev) => (prev + 1) % selectedAlbum.photos.length);
+      } else if (e.key === 'ArrowLeft') {
+        setActivePhotoIndex((prev) =>
+          prev === 0 ? selectedAlbum.photos.length - 1 : prev - 1
+        );
+      }
+    };
+
+    if (selectedAlbum) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedAlbum]);
+
   const handleOpenAlbum = (album: JustdialAlbum, startIndex = 0) => {
     setSelectedAlbum(album);
     setActivePhotoIndex(startIndex);
-    document.body.style.overflow = 'hidden';
   };
 
   const handleCloseModal = () => {
     setSelectedAlbum(null);
-    document.body.style.overflow = 'auto';
   };
 
   const handleNextPhoto = (e: React.MouseEvent) => {
