@@ -1,5 +1,7 @@
+import { Photo } from '../types';
+
 export interface JustdialPhotoItem {
-  id: number;
+  id: string | number;
   title: string;
   image: string;
   caption: string;
@@ -12,6 +14,58 @@ export interface JustdialAlbum {
   coverImage: string;
   photos: JustdialPhotoItem[];
 }
+
+const photoCountLabel = (count: number) =>
+  `${count} ${count === 1 ? 'Photo' : 'Photos'}`;
+
+const albumId = (name: string) =>
+  name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') ||
+  'album';
+
+/** Build the public gallery albums from photos stored in Supabase. */
+export const buildAlbumsFromPhotos = (photos: Photo[]): JustdialAlbum[] => {
+  if (photos.length === 0) return [];
+
+  const toItem = (photo: Photo): JustdialPhotoItem => ({
+    id: photo.id,
+    title: photo.title,
+    image: photo.image_url,
+    caption: photo.caption ?? '',
+  });
+
+  const allPhotos = photos.map(toItem);
+  const albums: JustdialAlbum[] = [
+    {
+      id: 'all',
+      name: 'All',
+      photoCountLabel: photoCountLabel(allPhotos.length),
+      coverImage: allPhotos[0].image,
+      photos: allPhotos,
+    },
+  ];
+
+  const albumNames = Array.from(
+    new Set(photos.map((photo) => photo.album || 'Latest'))
+  );
+
+  albumNames.forEach((name) => {
+    const items = photos
+      .filter((photo) => (photo.album || 'Latest') === name)
+      .map(toItem);
+
+    if (items.length === 0) return;
+
+    albums.push({
+      id: albumId(name),
+      name,
+      photoCountLabel: photoCountLabel(items.length),
+      coverImage: items[0].image,
+      photos: items,
+    });
+  });
+
+  return albums;
+};
 
 export const justdialAlbumsData: JustdialAlbum[] = [
   {

@@ -8,6 +8,7 @@ import {
   updateBooking,
 } from '../lib/bookings';
 import { Booking, BookingStatus } from '../types';
+import { AdminPhotos } from './AdminPhotos';
 
 const STATUS_OPTIONS: BookingStatus[] = [
   'pending',
@@ -32,8 +33,14 @@ const formatDate = (value: string) =>
     minute: '2-digit',
   });
 
-const errorMessage = (error: unknown) =>
-  error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+const errorMessage = (error: unknown) => {
+  if (error instanceof Error) return error.message;
+  if (error && typeof error === 'object' && 'message' in error) {
+    const message = (error as { message?: unknown }).message;
+    if (typeof message === 'string' && message) return message;
+  }
+  return 'Something went wrong. Please try again.';
+};
 
 export const AdminPanel: React.FC = () => {
   const [session, setSession] = useState<Session | null>(null);
@@ -55,6 +62,7 @@ export const AdminPanel: React.FC = () => {
   const [editForm, setEditForm] = useState<Booking | null>(null);
   const [actionError, setActionError] = useState<string | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [tab, setTab] = useState<'bookings' | 'photos'>('bookings');
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -300,6 +308,27 @@ export const AdminPanel: React.FC = () => {
       </header>
 
       <main className="admin-main">
+        <nav className="admin-tabs" aria-label="Admin sections">
+          <button
+            type="button"
+            className={tab === 'bookings' ? 'active' : ''}
+            onClick={() => setTab('bookings')}
+          >
+            <i className="fas fa-calendar-check"></i> Bookings
+          </button>
+          <button
+            type="button"
+            className={tab === 'photos' ? 'active' : ''}
+            onClick={() => setTab('photos')}
+          >
+            <i className="fas fa-images"></i> Photos
+          </button>
+        </nav>
+
+        {tab === 'photos' ? (
+          <AdminPhotos />
+        ) : (
+          <>
         <div className="admin-stats">
           <div className="admin-stat">
             <span>Total</span>
@@ -469,6 +498,8 @@ export const AdminPanel: React.FC = () => {
             </table>
           )}
         </div>
+          </>
+        )}
       </main>
 
       {editing && editForm && (

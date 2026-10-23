@@ -36,3 +36,14 @@ export interface Booking {
   created_at: string;
   updated_at: string;
 }
+
+export interface Photo {
+  id: string;
+  album: string;
+  title: string;
+  caption: string | null;
+  image_url: string;
+  storage_path: string | null;
+  sort_order: number;
+  created_at: string;
+}

@@ -28,7 +28,7 @@ Dev server runs on `http://localhost:3000`.
 
 ## Booking Database (Supabase)
 
-Every request submitted through the contact form is saved to Supabase. Bookings can be managed from the admin dashboard:
+Every request submitted through the contact form is saved to Supabase. Bookings and website photos can be managed from the admin dashboard:
 
 ```text
 https://your-site.com/#admin
@@ -49,3 +49,10 @@ The project URL and publishable key are configured in `src/lib/supabase.ts`. You
 - Search and filter by status (pending, confirmed, completed, cancelled)
 - Edit booking details, confirm, complete, cancel or delete bookings
 - Live counters for each booking status
+- Upload photos to Supabase Storage, edit their album/title/caption, or delete them
+
+### Photo gallery
+
+The **Photos** tab uploads images to the public `photos` bucket in Supabase Storage and stores their details in the `photos` table. The website reads this table and falls back to the bundled gallery in `src/data/justdialPhotosData.ts` when it is empty or unavailable.
+
+A discreet **Admin** link is available in the website footer.
