@@ -22,28 +22,3 @@ export interface BookingFormData {
   service: string;
   message: string;
 }
-
-export type BookingStatus = 'pending' | 'confirmed' | 'completed' | 'cancelled';
-
-export interface Booking {
-  id: string;
-  name: string;
-  email: string | null;
-  phone: string;
-  service: string;
-  message: string | null;
-  status: BookingStatus;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface Photo {
-  id: string;
-  album: string;
-  title: string;
-  caption: string | null;
-  image_url: string;
-  storage_path: string | null;
-  sort_order: number;
-  created_at: string;
-}

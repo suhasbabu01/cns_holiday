@@ -1,12 +1,10 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
-  buildAlbumsFromPhotos,
   JustdialAlbum,
   justdialAlbumsData,
   JustdialPhotoItem,
 } from '../data/justdialPhotosData';
-import { fetchPhotos } from '../lib/photos';
 
 interface JustdialPhotosSectionProps {
   onBookVehicle: (vehicleName: string) => void;
@@ -18,26 +16,6 @@ export const JustdialPhotosSection: React.FC<JustdialPhotosSectionProps> = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [selectedAlbum, setSelectedAlbum] = useState<JustdialAlbum | null>(null);
   const [activePhotoIndex, setActivePhotoIndex] = useState<number>(0);
-  const [albums, setAlbums] = useState<JustdialAlbum[]>(justdialAlbumsData);
-
-  useEffect(() => {
-    let active = true;
-
-    fetchPhotos()
-      .then((photos) => {
-        if (active && photos.length > 0) {
-          setAlbums(buildAlbumsFromPhotos(photos));
-        }
-      })
-      .catch((error) => {
-        // Keep the bundled gallery visible if Supabase is unreachable.
-        console.warn('Using bundled photo gallery:', error);
-      });
-
-    return () => {
-      active = false;
-    };
-  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -116,7 +94,7 @@ export const JustdialPhotosSection: React.FC<JustdialPhotosSectionProps> = ({
             </button>
 
             <div className="jd-cards-row" ref={scrollContainerRef}>
-              {albums.map((album) => (
+              {justdialAlbumsData.map((album) => (
                 <div
                   key={album.id}
                   className="jd-photo-card"

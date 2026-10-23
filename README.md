@@ -25,34 +25,3 @@ npm run dev
 ```
 
 Dev server runs on `http://localhost:3000`.
-
-## Booking Database (Supabase)
-
-Every request submitted through the contact form is saved to Supabase. Bookings and website photos can be managed from the admin dashboard:
-
-```text
-https://your-site.com/#admin
-```
-
-### One-time setup
-
-1. Open your Supabase project, go to **SQL Editor** and run [`supabase/schema.sql`](supabase/schema.sql).
-2. Go to **Authentication > Providers > Email** and turn **off** "Allow new users to sign up".
-3. Go to **Authentication > Users > Add user** and create your admin email + password.
-4. Open `/#admin` on the site and sign in with that account.
-
-The project URL and publishable key are configured in `src/lib/supabase.ts`. You can override them with `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` (see `.env.example`).
-
-### Admin dashboard
-
-- View all bookings with received date, customer contact, vehicle/trip and trip details
-- Search and filter by status (pending, confirmed, completed, cancelled)
-- Edit booking details, confirm, complete, cancel or delete bookings
-- Live counters for each booking status
-- Upload photos to Supabase Storage, edit their album/title/caption, or delete them
-
-### Photo gallery
-
-The **Photos** tab uploads images to the public `photos` bucket in Supabase Storage and stores their details in the `photos` table. The website reads this table and falls back to the bundled gallery in `src/data/justdialPhotosData.ts` when it is empty or unavailable.
-
-A discreet **Admin** link is available in the website footer.

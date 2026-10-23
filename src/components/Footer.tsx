@@ -117,22 +117,13 @@ export const Footer: React.FC = () => {
           <p>
             &copy; {currentYear} CNS Holiday. All rights reserved.
           </p>
-          <div className="footer-bottom-actions">
-            <a
-              href="#home"
-              className="built-by"
-              onClick={(e) => handleScrollTo(e, 'home')}
-            >
-              Travel Comfortably, Reach Happily &hearts;
-            </a>
-            <a
-              href="#admin"
-              className="footer-admin-link"
-              title="Admin dashboard"
-            >
-              <i className="fas fa-lock"></i> Admin
-            </a>
-          </div>
+          <a
+            href="#home"
+            className="built-by"
+            onClick={(e) => handleScrollTo(e, 'home')}
+          >
+            Travel Comfortably, Reach Happily &hearts;
+          </a>
         </div>
       </div>
     </footer>
