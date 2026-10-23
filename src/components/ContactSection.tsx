@@ -1,9 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BookingFormData } from '../types';
 
 interface ContactSectionProps {
   preselectedService?: string;
 }
+
+interface SubmissionResult {
+  method: 'whatsapp' | 'email';
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  whatsappUrl: string;
+  whatsappOpened: boolean;
+}
+
+const WHATSAPP_NUMBER = '919844464174';
+const EMAIL_ADDRESS = 'chandujaau1287@gmail.com';
+
+const buildWhatsAppMessage = (data: BookingFormData) => {
+  const lines = [
+    '*New Trip Booking Request – CNS Holiday*',
+    '',
+    `*Name:* ${data.name}`,
+  ];
+
+  if (data.email) lines.push(`*Email:* ${data.email}`);
+
+  lines.push(`*Phone:* ${data.phone}`, `*Vehicle / Trip:* ${data.service}`);
+
+  if (data.message) lines.push(`*Trip Details:* ${data.message}`);
+
+  lines.push('', '_Safe Journey, Happy Memories_');
+
+  return lines.join('\n');
+};
+
+const buildWhatsAppUrl = (data: BookingFormData) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    buildWhatsAppMessage(data)
+  )}`;
+
+const buildEmailUrl = (data: BookingFormData) => {
+  const body = [
+    'Trip Booking Request – CNS Holiday',
+    '----------------------------------',
+    `Name: ${data.name}`,
+  ];
+
+  if (data.email) body.push(`Email: ${data.email}`);
+
+  body.push(`Phone: ${data.phone}`, `Vehicle/Trip: ${data.service}`);
+
+  if (data.message) body.push(`Trip Details: ${data.message}`);
+
+  return `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(
+    `New Trip Booking Request (${data.service})`
+  )}&body=${encodeURIComponent(body.join('\n'))}`;
+};
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
   preselectedService,
@@ -22,10 +76,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     service?: string;
   }>({});
 
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [whatsappFallbackLink, setWhatsappFallbackLink] = useState<string | null>(
-    null
-  );
+  const [isSending, setIsSending] = useState(false);
+  const [sendingMethod, setSendingMethod] = useState<
+    'whatsapp' | 'email' | null
+  >(null);
+  const [success, setSuccess] = useState<SubmissionResult | null>(null);
 
   useEffect(() => {
     if (preselectedService) {
@@ -39,9 +94,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         'Airport Pickup / Drop',
         'Custom South India Package',
       ];
-      const match = options.find((opt) =>
-        opt.toLowerCase().includes(preselectedService.toLowerCase()) ||
-        preselectedService.toLowerCase().includes(opt.split('–')[0].trim().toLowerCase())
+      const match = options.find(
+        (opt) =>
+          opt.toLowerCase().includes(preselectedService.toLowerCase()) ||
+          preselectedService
+            .toLowerCase()
+            .includes(opt.split('–')[0].trim().toLowerCase())
       );
       if (match) {
         setFormData((prev) => ({ ...prev, service: match }));
@@ -49,8 +107,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     }
   }, [preselectedService]);
 
+  // Lock page scroll and allow Escape to close the success popup.
+  useEffect(() => {
+    if (!success) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSuccess(null);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [success]);
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -81,48 +159,77 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSendEmail = () => {
-    if (!validate()) return;
+  const handleSubmit = async (method: 'whatsapp' | 'email') => {
+    if (isSending || !validate()) return;
 
-    const emailBody = `\nTrip Booking Request – CNS Holiday\n----------------------------------\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nVehicle/Trip: ${formData.service}\nTrip Details: ${formData.message}\n`;
-    window.location.href = `mailto:chandujaau1287@gmail.com?subject=New Trip Booking Request (${encodeURIComponent(
-      formData.service
-    )})&body=${encodeURIComponent(emailBody)}`;
+    const snapshot: BookingFormData = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      service: formData.service,
+      message: formData.message.trim(),
+    };
 
-    setSuccessMessage('Email client opened with your booking request!');
-    setWhatsappFallbackLink(null);
-    setTimeout(() => setSuccessMessage(null), 5000);
-  };
+    const whatsappUrl = buildWhatsAppUrl(snapshot);
 
-  const handleSendWhatsapp = () => {
-    if (!validate()) return;
+    setSuccess(null);
+    setIsSending(true);
+    setSendingMethod(method);
 
-    const whatsappMessage = `*New Trip Booking Request – CNS Holiday*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Vehicle / Trip:* ${formData.service}\n*Trip Details:* ${formData.message}\n\n_Safe Journey, Happy Memories_`;
-    const url = `https://wa.me/919844464174?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-
-    const newWindow = window.open(url, '_blank');
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-      setWhatsappFallbackLink(url);
+    // Open WhatsApp or the mail client synchronously so the browser treats it
+    // as part of the user's click (and does not block the new tab).
+    let whatsappOpened = false;
+    if (method === 'whatsapp') {
+      const opened = window.open(whatsappUrl, '_blank');
+      if (opened) {
+        opened.opener = null;
+        whatsappOpened = true;
+      }
     } else {
-      setSuccessMessage('WhatsApp opened with your trip request!');
-      setWhatsappFallbackLink(null);
+      window.location.href = buildEmailUrl(snapshot);
     }
 
-    setTimeout(() => {
-      setSuccessMessage(null);
-    }, 6000);
+    // Keep the sending state visible long enough to read.
+    await new Promise((resolve) => setTimeout(resolve, 650));
+
+    setIsSending(false);
+    setSendingMethod(null);
+    setSuccess({
+      method,
+      name: snapshot.name,
+      email: snapshot.email,
+      phone: snapshot.phone,
+      service: snapshot.service,
+      whatsappUrl,
+      whatsappOpened,
+    });
   };
+
+  const closeSuccess = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: '',
+    });
+    setErrors({});
+    setSuccess(null);
+  };
+
+  const firstName = success?.name.split(' ')[0] || 'traveller';
 
   return (
     <section className="section contact-section" id="contact">
       <div className="container">
         <div className="section-title scroll-reveal">
-          <span className="section-subtitle">Book Now &bull; Safe &amp; Comfortable Journeys</span>
+          <span className="section-subtitle">
+            Book Now &bull; Safe &amp; Comfortable Journeys
+          </span>
           <h2>Contact Us</h2>
           <p>
-            The world is waiting for you! Call Chandranaik, WhatsApp or send your trip details for an instant quote.
+            The world is waiting for you! Call Chandranaik, WhatsApp or send your
+            trip details for an instant quote.
           </p>
         </div>
         <div className="contact-content">
@@ -133,7 +240,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
               <div>
                 <h4>Contact Person</h4>
-                <p><strong>Chandranaik</strong> – CNS Holiday / CNS Travels</p>
+                <p>
+                  <strong>Chandranaik</strong> – CNS Holiday / CNS Travels
+                </p>
               </div>
             </div>
             <div className="contact-item">
@@ -142,7 +251,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
               <div>
                 <h4>Address</h4>
-                <p>No 25/1, Raghavendra Colony, Gottigere, Bangalore - 560083</p>
+                <p>
+                  No 25/1, Raghavendra Colony, Gottigere, Bangalore - 560083
+                </p>
               </div>
             </div>
             <div className="contact-item">
@@ -201,9 +312,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <div className="contact-form scroll-reveal-right">
             <form
               id="contactForm"
+              aria-busy={isSending}
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSendWhatsapp();
+                void handleSubmit('whatsapp');
               }}
             >
               <div className="form-group floating-label">
@@ -307,7 +419,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   onChange={handleChange}
                 />
                 <label htmlFor="message">
-                  Trip details – travel date, destination (Ooty, Mysore, Coorg...), passenger count
+                  Trip details – travel date, destination (Ooty, Mysore,
+                  Coorg...), passenger count
                 </label>
               </div>
 
@@ -316,55 +429,142 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   type="button"
                   className="custom-btn btn-email"
                   id="sendEmailBtn"
-                  onClick={handleSendEmail}
+                  onClick={() => void handleSubmit('email')}
+                  disabled={isSending}
                 >
-                  <i className="fas fa-envelope"></i> Send Email
+                  {isSending && sendingMethod === 'email' ? (
+                    <>
+                      <span className="btn-spinner" aria-hidden="true"></span>
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-envelope"></i> Send Email
+                    </>
+                  )}
                 </button>
                 <button
-                  type="button"
+                  type="submit"
                   className="custom-btn btn-whatsapp"
                   id="sendWhatsappBtn"
-                  onClick={handleSendWhatsapp}
+                  disabled={isSending}
                 >
-                  <i className="fab fa-whatsapp"></i> Send WhatsApp
+                  {isSending && sendingMethod === 'whatsapp' ? (
+                    <>
+                      <span className="btn-spinner" aria-hidden="true"></span>
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      <i className="fab fa-whatsapp"></i> Send WhatsApp
+                    </>
+                  )}
                 </button>
               </div>
+
+              <p className="booking-form-hint">
+                This opens WhatsApp or email with your trip details filled in.
+                No account needed.
+              </p>
             </form>
-
-            {successMessage && (
-              <div
-                className="success-message"
-                id="successMessage"
-                style={{ display: 'block' }}
-              >
-                {successMessage}
-              </div>
-            )}
-
-            {whatsappFallbackLink && (
-              <div
-                className="whatsapp-notification"
-                id="whatsappNotification"
-                style={{ display: 'block' }}
-              >
-                <p>Your message has been prepared for WhatsApp!</p>
-                <p>
-                  Click{' '}
-                  <a
-                    href={whatsappFallbackLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    id="whatsappLink"
-                  >
-                    here
-                  </a>{' '}
-                  to send it via WhatsApp if it didn&apos;t open automatically.
-                </p>
-              </div>
-            )}
           </div>
         </div>
       </div>
+
+      {success && (
+        <div
+          className="booking-success-overlay"
+          role="presentation"
+          onClick={closeSuccess}
+        >
+          <div
+            className="booking-success-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="booking-success-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="booking-success-close"
+              onClick={closeSuccess}
+              aria-label="Close confirmation"
+            >
+              <i className="fas fa-xmark"></i>
+            </button>
+
+            <div className="booking-success-icon" aria-hidden="true">
+              <i className="fas fa-check"></i>
+            </div>
+
+            <span className="booking-success-kicker">Request prepared</span>
+            <h3 id="booking-success-title">Thank you, {firstName}!</h3>
+
+            <p className="booking-success-lead">
+              Your request for <strong>{success.service}</strong> is ready.
+              {success.method === 'whatsapp'
+                ? ' Please send it in WhatsApp so our team can confirm your trip.'
+                : ' Please send the email so our team can confirm your trip.'}
+            </p>
+
+            {success.method === 'whatsapp' ? (
+              <p className="booking-success-note">
+                <i className="fab fa-whatsapp"></i>{' '}
+                {success.whatsappOpened
+                  ? "WhatsApp has been opened in a new tab with your request. If it didn't open, use the button below."
+                  : 'Tap the button below to open WhatsApp and send your request.'}
+              </p>
+            ) : (
+              <p className="booking-success-note">
+                <i className="fas fa-envelope"></i> Your email app should open
+                with the request. You can also send it on WhatsApp below.
+              </p>
+            )}
+
+            <div className="booking-success-summary">
+              <div>
+                <span>Name</span>
+                <strong>{success.name}</strong>
+              </div>
+              <div>
+                <span>Vehicle / Trip</span>
+                <strong>{success.service}</strong>
+              </div>
+              <div>
+                <span>Phone</span>
+                <strong>{success.phone}</strong>
+              </div>
+              {success.email && (
+                <div>
+                  <span>Email</span>
+                  <strong>{success.email}</strong>
+                </div>
+              )}
+            </div>
+
+            <div className="booking-success-actions">
+              <a
+                className="custom-btn btn-whatsapp"
+                href={success.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-whatsapp"></i>{' '}
+                {success.method === 'whatsapp'
+                  ? 'Open WhatsApp again'
+                  : 'Send on WhatsApp'}
+              </a>
+              <button
+                type="button"
+                className="custom-btn booking-success-done"
+                onClick={closeSuccess}
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
