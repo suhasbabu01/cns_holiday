@@ -15,14 +15,25 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BackToTop } from './components/BackToTop';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { AdminPanel } from './components/AdminPanel';
 import { Service } from './types';
 import { useScrollReveal } from './hooks/useScrollReveal';
+
+const isAdminHash = () => /^#\/?admin\/?$/i.test(window.location.hash);
 
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [activeServiceModal, setActiveServiceModal] = useState<Service | null>(null);
   const [preselectedBookingService, setPreselectedBookingService] = useState<string>('');
+  const [isAdminRoute, setIsAdminRoute] = useState<boolean>(isAdminHash);
+
+  // Simple hash-based route for the admin dashboard (/#admin)
+  useEffect(() => {
+    const handleHashChange = () => setIsAdminRoute(isAdminHash());
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Initialize intersection observer-based entrance animations
   useScrollReveal([activeSection]);
@@ -51,6 +62,10 @@ export const App: React.FC = () => {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  if (isAdminRoute) {
+    return <AdminPanel />;
+  }
 
   return (
     <>

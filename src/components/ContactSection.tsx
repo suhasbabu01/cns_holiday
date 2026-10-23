@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BookingFormData } from '../types';
+import { createBooking } from '../lib/bookings';
 
 interface ContactSectionProps {
   preselectedService?: string;
@@ -26,6 +27,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const [whatsappFallbackLink, setWhatsappFallbackLink] = useState<string | null>(
     null
   );
+  const [isSaving, setIsSaving] = useState(false);
+  const [dbStatus, setDbStatus] = useState<'idle' | 'saved' | 'error'>('idle');
+  const hasSavedRef = useRef(false);
+
+  const saveBookingToDatabase = async () => {
+    if (hasSavedRef.current) return;
+
+    setIsSaving(true);
+    setDbStatus('idle');
+    try {
+      await createBooking(formData);
+      hasSavedRef.current = true;
+      setDbStatus('saved');
+    } catch (error) {
+      console.error('Failed to save booking to Supabase:', error);
+      setDbStatus('error');
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   useEffect(() => {
     if (preselectedService) {
@@ -54,6 +75,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
+    hasSavedRef.current = false;
+    setDbStatus('idle');
     if (errors[id as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [id]: undefined }));
     }
@@ -92,6 +115,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     setSuccessMessage('Email client opened with your booking request!');
     setWhatsappFallbackLink(null);
     setTimeout(() => setSuccessMessage(null), 5000);
+
+    // Persist the request to Supabase without blocking the email flow.
+    void saveBookingToDatabase();
   };
 
   const handleSendWhatsapp = () => {
@@ -113,6 +139,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     setTimeout(() => {
       setSuccessMessage(null);
     }, 6000);
+
+    // Persist the request to Supabase without blocking the WhatsApp flow.
+    void saveBookingToDatabase();
   };
 
   return (
@@ -338,6 +367,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 style={{ display: 'block' }}
               >
                 {successMessage}
+              </div>
+            )}
+
+            {isSaving && (
+              <div className="booking-save-status" role="status">
+                <i className="fas fa-circle-notch fa-spin"></i> Saving your request…
+              </div>
+            )}
+
+            {!isSaving && dbStatus === 'saved' && (
+              <div className="booking-save-status is-success" role="status">
+                <i className="fas fa-check-circle"></i> Booking saved to our system. Our team will contact you shortly.
+              </div>
+            )}
+
+            {!isSaving && dbStatus === 'error' && (
+              <div className="booking-save-status is-error" role="alert">
+                <i className="fas fa-exclamation-circle"></i> We couldn&apos;t save your request to our booking system. Please send it via WhatsApp or email.
               </div>
             )}
 
