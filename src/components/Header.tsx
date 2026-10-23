@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             onClick={(e) => handleNavClick(e, 'home')}
             style={{ display: 'flex', alignItems: 'center' }}
           >
-            <img src="/img/cns-logo.png" alt="CNS Holidays" className="logo-img-cns" />
+            <img src="/img/cns-logo.png" alt="CNS Holiday" className="logo-img-cns" />
           </a>
         </div>
         <div

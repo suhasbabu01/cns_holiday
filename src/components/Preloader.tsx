@@ -15,7 +15,7 @@ export const Preloader: React.FC = () => {
   return (
     <div className={`preloader ${hidden ? 'hidden' : ''}`} id="preloader">
       <div className="preloader-inner">
-        <img src="/img/cns-logo.png" alt="CNS Holidays" className="preloader-logo" />
+        <img src="/img/cns-logo.png" alt="CNS Holiday" className="preloader-logo" />
         <svg className="preloader-svg" width="100" height="100" viewBox="0 0 100 100">
           <circle
             className="preloader-ring"

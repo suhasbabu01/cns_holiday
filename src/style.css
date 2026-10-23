@@ -2360,7 +2360,6 @@ footer {
 
     .logo-text { font-size: 1.5rem; }
     .logo-img { width: 40px; height: 40px; }
-    .logo-img-cns { height: 56px; }
 
     .hero { padding: 140px 0 80px; min-height: auto; }
     .hero-title { font-size: 2rem; }
@@ -2530,8 +2529,6 @@ footer {
     margin-right: 12px;
     box-shadow: 0 0 0 3px rgba(255,196,0,0.25);
 }
-.logo-img-cns { height: 84px; width: auto; display: block; background: transparent; padding: 0; border-radius: 0; filter: none; }
-.preloader-logo { width: 250px; max-width: 72vw; height: auto; display: block; margin: 0 auto 10px; background: transparent; padding: 0; border-radius: 0; filter: none; }
 .logo-sub { font-size: 0.68rem; letter-spacing: 3px; color: var(--primary); font-weight: 600; }
 .nav-book { margin-left: 18px; color: #07163F !important; }
 .hero-badge {
@@ -2695,28 +2692,61 @@ footer { background: linear-gradient(180deg, #1A2F7A, #101F5E); }
    Poster 1 & 2 Refinements: Logo, Urbania, Badges
    ======================================== */
 
+/* Logo & preloader alignment (single source of truth) */
+.header-container { gap: 24px; }
+
+.logo,
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo { flex-shrink: 0; }
+.logo a { line-height: 0; }
+
 .logo-img-cns {
-    height: 70px;
+    height: 72px;
     width: auto;
-    max-height: 70px;
+    max-width: 230px;
+    max-height: none;
     object-fit: contain;
     display: block;
     border-radius: 6px;
-    transition: transform 0.25s ease;
+    background: transparent;
+    padding: 0;
+    filter: none;
+    transition: height 0.3s ease, transform 0.25s ease;
 }
+
+header.scrolled .logo-img-cns { height: 56px; }
 
 .logo-img-cns:hover {
     transform: scale(1.02);
 }
 
 .preloader-logo {
-    width: 280px;
-    max-width: 80vw;
-    height: auto;
+    width: auto;
+    height: 120px;
+    max-width: 82vw;
+    object-fit: contain;
     display: block;
     margin: 0 auto 16px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(26, 47, 122, 0.15);
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    filter: none;
+    box-shadow: none;
+}
+
+@media (max-width: 992px) {
+    .logo-img-cns { height: 60px; }
+    header.scrolled .logo-img-cns { height: 50px; }
+}
+
+@media (max-width: 768px) {
+    .logo-img-cns { height: 48px; }
+    header.scrolled .logo-img-cns { height: 44px; }
+    .preloader-logo { height: 96px; }
 }
 
 /* Hero Badge Row & Priority Sticker */
